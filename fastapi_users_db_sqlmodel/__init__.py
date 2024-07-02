@@ -57,13 +57,13 @@ class SQLModelUserDatabase(Generic[UP, ID], BaseUserDatabase[UP, ID]):
 
     session: Session
     user_model: Type[UP]
-    oauth_account_model: Optional[Type[SQLModelBaseOAuthAccount]]
+    oauth_account_model: Optional[Type[OAP]]
 
     def __init__(
         self,
         session: Session,
         user_model: Type[UP],
-        oauth_account_model: Optional[Type[SQLModelBaseOAuthAccount]] = None,
+        oauth_account_model: Optional[Type[OAP]] = None,
     ):
         self.session = session
         self.user_model = user_model
@@ -153,13 +153,13 @@ class SQLModelUserDatabaseAsync(Generic[UP, ID], BaseUserDatabase[UP, ID]):
 
     session: AsyncSession
     user_model: Type[UP]
-    oauth_account_model: Optional[Type[SQLModelBaseOAuthAccount]]
+    oauth_account_model: Optional[Type[OAP]]
 
     def __init__(
         self,
         session: AsyncSession,
         user_model: Type[UP],
-        oauth_account_model: Optional[Type[SQLModelBaseOAuthAccount]] = None,
+        oauth_account_model: Optional[Type[OAP]] = None,
     ):
         self.session = session
         self.user_model = user_model
